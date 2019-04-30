@@ -1,0 +1,151 @@
+{% extends 'base_two.html' %}
+
+{% block content %}
+{% load static %}
+
+  <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>News</h1>
+
+                    <div class="breadcrumbs">
+                        <ul class="d-flex flex-wrap align-items-center p-0 m-0">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>News</li>
+                        </ul>
+                    </div><!-- .breadcrumbs -->
+                </div>
+            </div>
+        </div>
+                {% for item in new_back_image %}
+        <img class="header-img" src="{{ item.image.url }}" alt="">
+    {% endfor %}
+    </header><!-- .site-header -->
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-lg-8">
+
+                <div class="the-news">
+
+                    <div class="row">
+                                        {% for item in new %}
+
+                        <div class="col-12 col-md-6">
+
+
+                            <div class="the-news-wrap">
+
+                                <figure class="post-thumbnail">
+                                    <a href="#"><img src="{{ item.new_image.url }}" alt=""></a>
+                                </figure>
+
+                                <header class="entry-header">
+                                    <h3>{{ item.new_title }}</h3>
+
+                                    <div class="post-metas d-flex flex-wrap align-items-center">
+                                        <div class="posted-date"><label>Date: </label><a href="#">{{ item.new_date }}</a></div>
+
+                                        <div class="posted-by"><label>By: </label><a href="#">{{ item.new_by_name }}</a></div>
+
+                                        <div class="post-comments"><a href="#">{{ item.new_no_comments }} Comments</a></div>
+                                    </div>
+                                </header>
+
+                                <div class="entry-content">
+                                    <p>{{ item.new_description }} </p>
+                                </div>
+
+                                <footer class="entry-footer mt-5">
+                                    <a class="button gradient-bg" href="#">Read More</a>
+                                </footer>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12">
+                            <ul class="pagination d-flex flex-wrap align-items-center p-0">
+                                <li class="active"><a href="#">01</a></li>
+                                <li><a href="#">02</a></li>
+                                <li><a href="#">03</a></li>
+                            </ul>
+                        </div>
+                            {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="sidebar">
+                    <div class="search-widget">
+                        <form class="flex flex-wrap align-items-center">
+                            <input type="search" placeholder="Search...">
+                            <button type="submit" class="flex justify-content-center align-items-center">Search</button>
+                        </form><!-- .flex -->
+                    </div><!-- .search-widget -->
+
+                    <div class="sidebar-cats">
+                        <h2 class="widget-title">Categories</h2>
+                            {% for item in categories %}
+                        <ul class="p-0 m-0">
+                            <li><a href="#">{{ item.cat_name }}</a></li>
+
+                        </ul>
+                        {% endfor %}
+                    </div>
+
+                    <div class="popular-posts">
+                        <h2 class="widget-title">Latest Posts</h2>
+
+                        <ul class="p-0 m-0">
+                            {% for item in latest_post %}
+                            <li class="d-flex flex-wrap justify-content-between">
+                                <figure><a href="#"><img src="{{ item.image.url }}" alt=""></a></figure>
+
+                                <div class="entry-content">
+                                    <h3 class="entry-title"><a href="#">{{ item.description }}</a></h3>
+
+                                    <div class="posted-date">{{ item.date }}</div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div><!-- .cat-links -->
+
+                    <div class="opening-hours">
+
+                        <h2 class="d-flex align-items-center">Opening Hours</h2>
+                            {% for item in hours_open %}
+
+                        <ul class="p-0 m-0">
+
+                            <li>{{ item.day_open }} <span>{{ item.time_open }}</span></li>
+
+                        </ul>
+                        {% endfor %}
+                    </div>
+
+                    <div class="emergency-box">
+                        {% for item in emerg %}
+                        <h2 class="d-flex align-items-center">Emergency</h2>
+
+                        <div class="call-btn text-center">
+                            <a class="d-flex justify-content-center align-items-center button gradient-bg" href="#"><img src="{% static '/images/emergency-call.png' %}"> {{ item.emer_num }}</a>
+                        </div>
+
+                       <p>{{ item.emer_descrip }}</p>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

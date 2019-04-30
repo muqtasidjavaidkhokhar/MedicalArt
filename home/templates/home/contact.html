@@ -1,0 +1,150 @@
+{% extends 'base_two.html' %}
+
+
+{% block content %}
+    {% load static %}
+
+ <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Contact</h1>
+
+                    <div class="breadcrumbs">
+                        <ul class="d-flex flex-wrap align-items-center p-0 m-0">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>Contact</li>
+                        </ul>
+                    </div><!-- .breadcrumbs -->
+
+                </div>
+            </div>
+        </div>
+                {% for item in contact_back_image %}
+        <img class="header-img" src="{{ item.image.url }}" alt="">
+    {% endfor %}
+    </header><!-- .site-header -->
+
+    <div class="contact-page-short-boxes">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="contact-info h-100">
+                        <h2 class="d-flex align-items-center">Contact Info</h2>
+
+                        <ul class="p-0 m-0">
+                            {% for item in contact_block %}
+                            <li><span>Addtress:</span>{{ item.address }}</li>
+                            <li><span>Phone:</span>{{ item.phone }}</li>
+                            <li><span>Email:</span>{{ item.email }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mt-5 mt-lg-0">
+                    <div class="opening-hours h-100">
+                        {% for i in hours_open %}
+                        <h2 class="d-flex align-items-center">Opening Hours</h2>
+
+                        <ul class="p-0 m-0">
+                            <li>{{ i.day_open }} <span>{{ i.time_open }}</span></li>
+
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mt-5 mt-lg-0">
+                    <div class="emergency-box h-100">
+                        {% for item in emerg %}
+                        <h2 class="d-flex align-items-center">Emergency</h2>
+
+                        <div class="call-btn text-center">
+                            <a class="d-flex justify-content-center align-items-center button gradient-bg" href="#"><img src="{% static '/images/emergency-call.png' %}"> {{ item.emer_num }}</a>
+                        </div>
+
+                        <p>{{ item.emer_descrip }}</p>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="contact-form">
+
+        <div class="container">
+             <form id="contact-message-form">{% csrf_token %}
+
+            <div class="row">
+
+                <div class="col-12">
+                    <h2>Get in Touch</h2>
+                </div>
+                <div class="col-12  col-md-4">
+                    <input type="text" placeholder="Name" id="name" name="name">
+                </div><!-- col-4 -->
+
+                <div class="col-12 col-md-4">
+                    <input type="email" placeholder="E-mail" id="email" name="email">
+                </div><!-- col-6 -->
+
+                <div class="col-12 col-md-4">
+                    <input type="text" placeholder="Subject" id="subject" name="subject">
+                </div>
+
+                <div class="col-12">
+                    <textarea name="message" rows="12" cols="80" placeholder="Message" id="message"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" style="cursor: pointer" id="submit" name="Send" class="button gradient-bg"><span class="msk"></span>Send</button>
+                </div>
+                     <span id="successful-message"></span>
+            </div>
+             </form>
+        </div>
+
+    </div>
+<!-- contact-form -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-page-map">
+                    <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=university of san francisco&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div><!-- map -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+
+        $(document).on('submit','#contact-message-form',function (e) {
+            e.preventDefault();
+            $(".msk").addClass('fa fa-spinner fa-spin')
+            $.ajax({
+                type:"POST",
+                url:"/contactmessage/",
+                data:{
+                    name:$('#name').val(),
+                    email:$('#email').val(),
+                    subject:$('#subject').val(),
+                    message:$('#message').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function (data) {
+                    $('#successful-message').text(data)
+                     $(".msk").removeClass('fa fa-spinner fa-spin')
+
+                },
+                error: function (err) {
+
+                }
+            });
+
+        });
+
+    </script>
+{% endblock %}

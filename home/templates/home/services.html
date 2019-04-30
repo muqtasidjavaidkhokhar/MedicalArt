@@ -1,0 +1,119 @@
+{% extends 'base_two.html' %}
+
+
+
+{% block content %}
+
+    {% load static %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Services</h1>
+
+                <div class="breadcrumbs">
+                    <ul class="d-flex flex-wrap align-items-center p-0 m-0">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Services</li>
+                    </ul>
+                </div><!-- .breadcrumbs -->
+            </div>
+        </div>
+    </div>
+    {% for item in service_background %}
+        <img class="header-img" src="{{ item.image.url }}" alt="">
+    {% endfor %}
+    </header><!-- .site-header -->
+
+    <div class="quality-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Only Top Quality Services</h2>
+
+                    <div class="row">
+                        {% for i in top_quality_service %}
+
+                            <div class="col-12 col-md-6">
+                                <p>{{ i.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="w-100 text-center mt-5">
+                        <a class="button gradient-bg" href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="our-departments-wrap">
+                    <h2>Our Departments</h2>
+
+                    <div class="row">
+                        {% for item in depart %}
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="our-departments-cont">
+                                    <header class="entry-header d-flex flex-wrap align-items-center">
+                                        <img src="{{ item.dep_image.url }}" alt="">
+
+                                        <h3>{{ item.dep_name }}</h3>
+                                    </header>
+
+                                    <div class="entry-content">
+                                        <p>{{ item.dep_description }}</p>
+                                    </div>
+
+                                    <footer class="entry-footer">
+                                        <a href="#">read more</a>
+                                    </footer>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="services-tabs">
+                    <div class="tabs">
+                        <ul class="tabs-nav d-flex flex-wrap">
+                            {% for tab in service_tab %}
+                                <li class="tab-nav d-flex justify-content-center align-items-center"
+                                    data-target="#tab_{{ tab.id }}">{{ tab.title }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                        <div class="tabs-container">
+                            {% for tab in service_tab %}
+
+                                <div id="tab_{{ tab.id }}" class="tab-content">
+                                    <img src="{{ tab.image.url }}" alt="">
+
+                                    <h4>{{ tab.title }} </h4>
+
+                                    <p>{{ tab.description }}</p>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
