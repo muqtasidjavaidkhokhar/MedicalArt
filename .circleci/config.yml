@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.3
+    steps:
+      - checkout
+      - run:
+          command: sudo pip install -r requirement.txt
+      - run:
+          command: coverage run manage.py test
+

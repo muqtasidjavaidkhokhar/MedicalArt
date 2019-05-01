@@ -1,0 +1,19 @@
+[run]
+source=.
+omit =
+    */migrations/*
+    */venv/*
+    */MedicalArt/__init__.py
+     home/__init__.py
+    home/admin.py
+    home/apps.py
+    home/forms.py
+    home/tests.py
+    home/urls.py
+    MedicalArt/__init__.py
+    MedicalArt/settings.py
+    MedicalArt/urls.py
+    MedicalArt/wsgi.py
+    home/test/__init__.py
+    manage.py
+

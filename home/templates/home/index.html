@@ -1,0 +1,261 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="swiper-container hero-slider">
+        <div class="swiper-wrapper">
+            {% for item in object_home %}
+
+                <div class="swiper-slide hero-content-wrap"
+                     style="background-image: url('{{ item.slider_image.url }}')">
+                    <div class="hero-content-overlay position-absolute w-100 h-100">
+                        <div class="container h-100">
+                            <div class="row h-100">
+                                <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start">
+                                    <header class="entry-header">
+                                        <h1>{{ item.slider_u_title }} <br>{{ item.slider_l_title }} </h1>
+                                    </header><!-- .entry-header -->
+
+                                    <div class="entry-content mt-4">
+                                        <p>{{ item.slider_description }}.</p>
+                                    </div><!-- .entry-content -->
+
+                                    <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
+                                        <a href="#" class="button gradient-bg">Read More</a>
+                                    </footer><!-- .entry-footer -->
+                                </div><!-- .col -->
+                            </div><!-- .row -->
+                        </div><!-- .container -->
+                    </div><!-- .hero-content-overlay -->
+                </div><!-- .hero-content-wrap -->
+
+
+            {% endfor %}<!-- .hero-content-wrap -->
+        </div><!-- .swiper-wrapper -->
+
+        <div class="pagination-wrap position-absolute w-100">
+            <div class="swiper-pagination d-flex flex-row flex-md-column"></div>
+        </div><!-- .pagination-wrap -->
+    </div><!-- .hero-slider -->
+<div class="homepage-boxes">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="opening-hours">
+                    <h2 class="d-flex align-items-center">Opening Hours</h2>
+
+                    <ul class="p-0 m-0">
+                        {% for i in hours_open %}
+                            <li>{{ i.day_open }} <span>{{ i.time_open }}</span></li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                <div class="emergency-box">
+                    <h2 class="d-flex align-items-center">Emergency</h2>
+                    {% for i in emerg %}
+
+                        <div class="call-btn button gradient-bg">
+                            <a class="d-flex justify-content-center align-items-center" href="#"><img
+                                    src="static/images/emergency-call.png"> {{ i.emer_num }}</a>
+                        </div>
+
+                        <p>{{ i.emer_descrip }}</p>
+                    {% endfor %}</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 mt-5 mt-lg-0">
+                <div class="appointment-box">
+                    <h2 class="d-flex align-items-center">Make an Appointment</h2>
+
+                    <form class="d-flex flex-wrap justify-content-between" id="appoint-form">{% csrf_token %}
+                        <select class="select-department" id="department" name="department">
+                            {% for i in appo_depart %}
+                            <option value="{{ i.id }}">{{ i.dep_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <select class="select-doctor" id="doctor" name="doctor">
+                            {% for i in appo_doctor %}
+                            <option value="{{ i.id }}">{{ i.doctor_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <input type="text" placeholder="Name" id="name" name="name">
+
+                        <input type="number" placeholder="Phone No" id="phone" name="phone">
+
+                        <button class="button gradient-bg" style="cursor: pointer" type="submit" id="submit"><span class="msk"></span>Boom Appointment</button>
+                            <br>
+                        <span id="appointment-message"></span>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="our-departments">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="our-departments-wrap">
+
+                    <h2>Our Departments</h2>
+
+                    <div class="row">
+                        {% for item in depart %}
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="our-departments-cont">
+                                    <header class="entry-header d-flex flex-wrap align-items-center">
+                                        <img src="{{ item.dep_image.url }}" alt="">
+
+                                        <h3>{{ item.dep_name }}</h3>
+                                    </header>
+
+                                    <div class="entry-content">
+                                        <p>{{ item.dep_description }}</p>
+                                    </div>
+
+                                    <footer class="entry-footer">
+                                        <a href="#">read more</a>
+                                    </footer>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="testimonial-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Patient’s Testimonials</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper -->
+    <div class="testimonial-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="testimonial-bg-shape">
+                        <div class="swiper-container testimonial-slider-wrap">
+                            <div class="swiper-wrapper">
+                                {% for item in pat_test %}
+                                    <div class="swiper-slide">
+                                        <div class="entry-content">
+                                            <p>{{ item.pat_description }}</p>
+                                        </div><!-- .entry-content -->
+
+                                        <div class="entry-footer">
+                                            <figure class="user-avatar">
+                                                <img src="{{ item.pat_image.url }}" alt="">
+                                            </figure><!-- .user-avatar -->
+
+                                            <h3 class="testimonial-user">{{ item.pat_name }} <span>{{ item.pat_address }}</span>
+                                            </h3>
+                                        </div><!-- .entry-footer -->
+                                    </div><!-- .swiper-slide -->
+                                {% endfor %}
+
+                            </div><!-- .swiper-wrapper -->
+
+                            <div class="swiper-pagination-wrap">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="swiper-pagination position-relative flex justify-content-center align-items-center"></div>
+                                        </div><!-- .col -->
+                                    </div><!-- .row -->
+                                </div><!-- .container -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .testimonial-slider -->
+</section><!-- .testimonial-section -->
+
+<div class="the-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>The News</h2>
+
+                <div class="row">
+                    {% for item in new %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="the-news-wrap">
+                            <figure class="post-thumbnail">
+                                <a href="#"><img src="{{ item.new_image.url }}" alt=""></a>
+                            </figure>
+
+                            <header class="entry-header">
+                                <h3>{{ item.new_title }}</h3>
+
+                                <div class="post-metas d-flex flex-wrap align-items-center">
+                                    <div class="posted-date"><label>Date: </label><a href="">{{ item.new_date }}</a></div>
+
+                                    <div class="posted-by"><label>By: </label><a href="#">{{ item.new_by_name }}</a></div>
+
+                                    <div class="post-comments"><a href="#">{{ item.new_no_comments }} comments</a></div>
+                                </div>
+                            </header>
+
+                            <div class="entry-content">
+                                <p>{{ item.new_description }} </p>
+                            </div>
+                        </div>
+                    </div>
+
+                   {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+ <script type="text/javascript">
+
+        $(document).on('submit','#appoint-form',function (e) {
+            console.log("$('#department').val(): ", $('#department').val())
+            e.preventDefault();
+             $(".msk").addClass('fa fa-spinner fa-spin')
+            $.ajax({
+                type:"POST",
+                url:"/appoint_ment/",
+                data:{
+                    department:$('#department').val(),
+                    doctor:$('#doctor').val(),
+                    name:$('#name').val(),
+                    phone:$('#phone').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function (data) {
+                    $('#appointment-message').text(data)
+                    $(".msk").removeClass('fa fa-spinner fa-spin')
+
+                },
+                error: function (err) {
+                    console.log(err);
+
+                }
+            });
+
+        });
+
+    </script>
+{% endblock %}
