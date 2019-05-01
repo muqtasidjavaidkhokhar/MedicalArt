@@ -1,0 +1,2 @@
+# MedicalArt
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0c8c9af31b6a45fc8b183cadd5cb803a)](https://app.codacy.com/app/muqtasidjavaidkhokhar/MedicalArt?utm_source=github.com&utm_medium=referral&utm_content=muqtasidjavaidkhokhar/MedicalArt&utm_campaign=Badge_Grade_Dashboard)
