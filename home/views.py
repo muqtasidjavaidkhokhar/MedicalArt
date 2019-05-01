@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 from django.core.mail import send_mail
 from .models import news_subs, appointments, ContactForm
 from django.conf import settings
-from django.shortcuts import render
 
 from .models import opening_hour, index, emergency, our_department, patient_testimonial, appoint_doctor, \
     appoint_depart, HeadFoot
