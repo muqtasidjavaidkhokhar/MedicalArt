@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: frolvlad/alpine-python3
+      - image: nikolaik/python-nodejs
 
     steps:
       - checkout
