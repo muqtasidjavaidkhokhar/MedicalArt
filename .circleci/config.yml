@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: booleanbetrayal/circleci-trusty-ruby-node-python-awscli-psql-chrome
+      - image: lilfolr/nodejs-python
     steps:
       - checkout
       - run:
