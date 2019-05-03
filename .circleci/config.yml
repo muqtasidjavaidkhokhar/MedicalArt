@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine-python3-nodejs
+      - image: labhackercd/alpine-python3-nodejs
+
 
     steps:
       - checkout
