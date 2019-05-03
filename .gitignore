@@ -129,3 +129,6 @@ node_modules/
 staticfiles/
 
 media/
+
+cypress/videos/
+cypress/screenshots/
