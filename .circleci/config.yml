@@ -2,17 +2,16 @@ version: 2
 jobs:
   build:
     docker:
-      - image: nuonic/node-python-awscli
+      - image: alpine-python3-nodejs
+
     steps:
       - checkout
       - run:
           command: pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
-      - run:
-          command: npm install
-      - run:
-          command: python --version
+#      - run:
+#          command: npm install
 
 
 
