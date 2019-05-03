@@ -12,6 +12,8 @@ jobs:
       - run:
           command: npm install
 
+      - run:
+          command: python manage,py runserver 8000
 
 
 
