@@ -10,6 +10,10 @@ jobs:
           command: pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
+      - run:
+          command: npm install
+      - run:
+          command: python manage.py runserver 8000
 
 
 
