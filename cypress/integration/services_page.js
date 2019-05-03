@@ -52,6 +52,8 @@ describe('services', function () {
         cy.get('[data-target="#tab_5"]').contains('Phasellus');
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
         cy.get('#user_subscription > .button').contains('Subscribe');
+        cy.get('#email').type('medart402@gmail.com');
+        cy.get('#submit').click();
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');
         cy.get('.foot-contact > h2').contains('Contact');

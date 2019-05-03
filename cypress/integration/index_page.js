@@ -20,6 +20,11 @@ describe('index', function () {
         cy.get('.emergency-box').contains('Emergency');
         cy.get('.emergency-box').contains('+34 586 778 8892');
         cy.get('.emergency-box').contains('Lorem ipsum dolor sit amet, cons ectetur adipiscing elit.');
+        cy.get('#department').select('Cardiology');
+        cy.get('#doctor').select('Dr. Anna Gustav');
+        cy.get('#name').type('Ali Adil');
+        cy.get('#phone').type('03475467325');
+        cy.get('#appoint-form > #submit').click();
         cy.get('.our-departments-wrap > h2').contains('Our');
         cy.get(':nth-child(1) > .our-departments-cont > .entry-header > h3').contains('Cardio');
         cy.get(':nth-child(1) > .our-departments-cont > .entry-content > p').contains('Lorem ipsum dolor sit amet');
@@ -67,6 +72,8 @@ describe('index', function () {
         cy.get(':nth-child(2) > .the-news-wrap > .entry-header > .post-metas > .post-comments > a').contains('comments');
         cy.get(':nth-child(2) > .the-news-wrap > .entry-content > p').contains('Lorem ipsum dolor sit ame');
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
+        cy.get('#email').type('medart402@gmail.com');
+        cy.get('#user_subscription > #submit').click();
         cy.get('#user_subscription > #submit').contains('Subscribe');
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');

@@ -9,4 +9,6 @@ jobs:
           command: sudo pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
+      
+
 

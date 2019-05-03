@@ -26,8 +26,15 @@ describe('contact', function () {
         cy.get('.emergency-box > p').contains('Lorem ipsum');
         cy.get('#contact-message-form > .row > :nth-child(1) > h2').contains('Get');
         cy.get(':nth-child(6) > #submit').contains('Send');
+        cy.get('#name').type('Abubakar');
+        cy.get(':nth-child(3) > #email').type('medart402@gmail.com');
+        cy.get('#subject').type('Just Testing');
+        cy.get('#message').type('This is testing phase');
+        cy.get(':nth-child(6) > #submit').click();
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
         cy.get('#user_subscription > #submit').contains('Subscribe');
+        cy.get('#user_subscription > #email').type('medart402@gmail.com');
+        cy.get('#user_subscription > #submit').click();
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');
         cy.get('.foot-contact > h2').contains('Contact');

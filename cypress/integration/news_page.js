@@ -59,6 +59,8 @@ describe('news', function () {
         cy.get(':nth-child(4) > .pagination > :nth-child(3) > a').contains('03');
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
         cy.get('#user_subscription > .button').contains('Subscribe');
+        cy.get('#email').type('medart402@gmail.com');
+        cy.get('#submit').click();
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');
         cy.get('.foot-contact > h2').contains('Contact');

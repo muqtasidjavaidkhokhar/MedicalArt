@@ -49,6 +49,8 @@ describe('elements', function () {
         cy.get(':nth-child(3) > .icon-box > .entry-content > p').contains('Lorem');
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
         cy.get('#user_subscription > .button').contains('Subscribe');
+        cy.get('#email').type('samuyu@simpleemail.info');
+        cy.get('#submit').click();
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');
         cy.get('.foot-contact > h2').contains('Contact');

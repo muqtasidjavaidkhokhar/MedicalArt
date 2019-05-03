@@ -38,6 +38,8 @@ describe('about', function () {
         cy.get('.medical-team').contains('PHD');
         cy.get('.subscribe-banner > .container > .row > .col-12 > h2').contains('newsletter');
         cy.get('#user_subscription > .button').contains('Subscribe');
+        cy.get('#email').type('medart402@gmail.com');
+        cy.get('#user_subscription > .button').click();
         cy.get('.foot-about > :nth-child(2)').contains('Lorem ipsum dolor');
         cy.get('.copyright').contains('Copyright');
         cy.get('.foot-contact > h2').contains('Contact');
