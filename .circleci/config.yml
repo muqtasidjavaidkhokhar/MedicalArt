@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: labhackercd/alpine-python3-nodejs
+      - image: frolvlad/alpine-python3
+
 
 
     steps:
@@ -11,8 +12,6 @@ jobs:
           command: pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
-      - run:
-          command: pip install Pillow
 
 
 
