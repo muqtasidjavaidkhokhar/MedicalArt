@@ -12,13 +12,12 @@ jobs:
       - run:
           command: npm install
 
-    {
+
       "scripts": {
-        "start": "my-server -p 3030",
+        "start": "my-server -p 8000",
         "cy:run": "cypress run",
-        "test": "start-server-and-test start http://localhost:3030 cy:run"
+        "test": "start-server-and-test start http://localhost:8000 cy:run"
       }
-    }
-      
+
 
 
