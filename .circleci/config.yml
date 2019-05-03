@@ -16,6 +16,7 @@ jobs:
           command: python manage.py makemigrations && python manage.py migrate
       - run:
           command: python manage.py runserver 8000
+          background: true
       - run:
           command: node_modules/.bin/cypress open
 
