@@ -12,7 +12,7 @@ jobs:
       - run:
           command: npm install
       - run:
-          command: python3 manage.py runserver 8000
+          command: WHICH PYTHON && python --version
 
 
 
