@@ -1,0 +1,24 @@
+{
+  "name": "medicalart",
+  "version": "1.0.0",
+  "description": "[![Codacy Badge](https://api.codacy.com/project/badge/Grade/911c947cb0c6470cad1fcc5188b46a0e)](https://www.codacy.com/app/muqtasidjavaidkhokhar/MedicalArt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muqtasidjavaidkhokhar/MedicalArt&amp;utm_campaign=Badge_Grade)",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^3.2.0",
+    "ladda": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muqtasidjavaidkhokhar/MedicalArt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muqtasidjavaidkhokhar/MedicalArt/issues"
+  },
+  "homepage": "https://github.com/muqtasidjavaidkhokhar/MedicalArt#readme"
+}
