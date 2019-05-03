@@ -18,7 +18,12 @@ jobs:
           command: python manage.py runserver 8000
           background: true
       - run:
+          command: pip install pytest-xvfb
+      - run:
           command: node_modules/.bin/cypress open
+
+
+
 
 
 
