@@ -4,8 +4,6 @@ jobs:
     docker:
       - image: frolvlad/alpine-python3
 
-
-
     steps:
       - checkout
       - run:
