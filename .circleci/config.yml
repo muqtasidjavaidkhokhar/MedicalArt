@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: lilfolr/nodejs-python
+      - image: nuonic/node-python-awscli
     steps:
       - checkout
       - run:
