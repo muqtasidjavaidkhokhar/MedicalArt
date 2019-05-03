@@ -9,12 +9,10 @@ jobs:
           command: pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
-#      - run:
-#          command: npm install
       - run:
-          command: python manage.py migrate
+          command: npm install
       - run:
-          command: python manage.py runserver 8000
+          command: python3 manage.py runserver 8000
 
 
 
