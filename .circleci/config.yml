@@ -18,9 +18,6 @@ jobs:
           command: python manage.py runserver 8000
           background: true
       - run:
-          command: apt-get install --fix-missing -y xvfb
-
-      - run:
           command: node_modules/.bin/cypress open
 
 
