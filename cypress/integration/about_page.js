@@ -1,6 +1,6 @@
 describe('about', function () {
     it('about', function () {
-        cy.visit('http://127.0.0.1:8000/about', { visitTimeout: 5000 }).then(() => {
+        cy.visit('http://127.0.0.1:8000/', { visitTimeout: 5000 }).then(() => {
 
         });
         cy.get('.current-menu-item > a').contains('Home');
