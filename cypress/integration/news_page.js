@@ -15,7 +15,7 @@ describe('news', function () {
         cy.get('.breadcrumbs > .d-flex > :nth-child(1) > a').contains('Home');
         cy.get('.flex-wrap > .flex').contains('Search');
         cy.get('.sidebar-cats > .widget-title').contains('Categories');
-        // cy.get('.sidebar-cats > :nth-child(2) > li > a').contains('Radiology');
+        cy.get('.sidebar-cats > :nth-child(2) > li > a').contains('Radiology');
         cy.get('.sidebar-cats > :nth-child(3) > li').contains('Cardiology');
         cy.get('.sidebar-cats > :nth-child(4) > li').contains('Gastroenterology');
         cy.get('.sidebar-cats > :nth-child(5) > li').contains('Neurology');

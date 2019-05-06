@@ -9,7 +9,7 @@ describe('index', function () {
         cy.get('.flex-column > :nth-child(4) > a').contains('News');
         cy.get('.flex-column > :nth-child(5) > a').contains('Contact');
         cy.get('.flex-column > .call-btn > .d-flex').contains('+34 586 778 8892');
-        // cy.get('[style="background-image: url(\'/media/images/hero.jpg\')"] > .hero-content-overlay > .container > .row > .col-12 > .entry-header > h1').contains('The Best Medical Services');
+        cy.get('[style="background-image: url(\'/media/images/hero.jpg\')"] > .hero-content-overlay > .container > .row > .col-12 > .entry-header > h1').contains('The Best Medical Services');
         cy.get('[style="background-image: url(\'/media/images/hero.jpg\')"] > .hero-content-overlay > .container > .row > .col-12 > .entry-content > p').contains('Lorem ipsum dolor sit amet, cons ectetur');
         cy.get('[style="background-image: url(\'/media/images/hero.jpg\')"] > .hero-content-overlay > .container > .row > .col-12 > .entry-footer > .button').contains('Read More');
         cy.get('.opening-hours').contains('Opening');

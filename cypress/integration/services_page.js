@@ -14,7 +14,7 @@ describe('services', function () {
         cy.get('.breadcrumbs > .d-flex > :nth-child(2)').contains('Services');
         cy.get('.breadcrumbs > .d-flex > :nth-child(1) > a').contains('Home');
         cy.get('.quality-services > .container > :nth-child(1) > :nth-child(1) > h2').contains('Top Quality');
-        // cy.get('.row > :nth-child(1) > p').contains('Lorem ipsum dolor');
+        cy.get('.row > :nth-child(1) > p').contains('Lorem ipsum dolor');
         cy.get('.row > :nth-child(2) > p').contains('Amet, consectetur');
         cy.get('.w-100 > .button').contains('Read');
         cy.get('.our-departments-wrap > h2').contains('Our');

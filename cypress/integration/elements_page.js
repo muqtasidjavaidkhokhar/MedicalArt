@@ -18,7 +18,7 @@ describe('elements', function () {
         cy.get('.dark').contains('Read');
         cy.get('.entry-content > :nth-child(3)').contains('Read');
         cy.get(':nth-child(2) > :nth-child(2) > :nth-child(1) > .entry-header > .entry-title').contains('Accordion');
-        // cy.get('.accordion-wrap > :nth-child(1)').contains('Elit');
+        cy.get('.accordion-wrap > :nth-child(1)').contains('Elit');
         cy.get('[data-target="#tab_1"]').contains('Pellentesque');
         cy.get('[data-target="#tab_2"]').contains('Pellentesque');
         cy.get('[data-target="#tab_3"]').contains('Consectetur');

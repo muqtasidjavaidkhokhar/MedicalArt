@@ -13,7 +13,7 @@ describe('about', function () {
         cy.get('.breadcrumbs > .d-flex > :nth-child(1) > a').contains('Home');
         cy.get('.breadcrumbs > .d-flex > :nth-child(2)').contains('About');
         cy.get('.breadcrumbs > .d-flex > :nth-child(1) > a').contains('Home');
-        // cy.get('.med-history > .container > .row > :nth-child(1) > h2').contains('MedArt');
+        cy.get('.med-history > .container > .row > :nth-child(1) > h2').contains('MedArt');
         cy.get('.row > :nth-child(1) > p').contains('laoreet et quam non, viverra');
         cy.get('.d-inline-block').contains('Read');
         cy.get('.faq-stuff > .container > :nth-child(1) > :nth-child(1) > h2').contains('Faq');
