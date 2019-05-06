@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: apt install xvfb -y
+          command: apt update && apt install xvfb -y
       - run:
           command: pip install -r requirement.txt
       - run:
