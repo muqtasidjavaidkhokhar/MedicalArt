@@ -7,6 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
+          command: apt install xvfb -y
+      - run:
           command: pip install -r requirement.txt
       - run:
           command: coverage run manage.py test
@@ -18,7 +20,9 @@ jobs:
           command: python manage.py runserver 8000
           background: true
       - run:
-          command: node_modules/.bin/cypress open
+
+      - run:
+          command: node_modules/.bin/cypress run
 
 
 
