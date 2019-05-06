@@ -1,6 +1,6 @@
 describe('contact', function () {
     it('contact', function () {
-        cy.visit('http://127.0.0.1:8000/contact').then(() => {
+        cy.visit('http://127.0.0.1:8000/contact/').then(() => {
 
         });
         cy.get('.current-menu-item > a').contains('Home');
