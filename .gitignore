@@ -131,4 +131,5 @@ staticfiles/
 
 media/
 
-
+cypress/videos/
+cypress/screenshots/
