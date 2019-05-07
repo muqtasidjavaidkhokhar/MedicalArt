@@ -17,6 +17,8 @@ jobs:
       - run:
           command: python manage.py makemigrations && python manage.py migrate
       - run:
+          command: import json
+      - run:
           command: python manage.py runserver 0.0.0.0:8000
           background: true
       - run:
